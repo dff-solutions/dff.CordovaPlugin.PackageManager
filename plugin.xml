@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" 
+    id="com.dff.cordova.plugins.packagemanager"
+    version="0.0.1">
+
+    <name>PackageInfo</name>
+    <description>PackageInfo Plugin</description>
+    <author>dff solutions</author>
+    <keywords>phonegap,cordova,PackageInfo,dff</keywords>
+
+    <js-module src="www/packagemanager.js" name="packagemanager">
+        <clobbers target="PackageManager" />
+    </js-module>
+ 
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="PackageManager">
+                <param name="android-package" value="com.dff.cordova.plugin.packagemanager.PackageManagerPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+        </config-file>
+        
+		<source-file src="src/android/com/dff/cordova/plugin/common/action/CordovaAction.java" target-dir="src/com/dff/cordova/plugin/common/action" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONActivityInfo.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONApplicationInfo.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONConfigurationInfo.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONFeatureInfo.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONInstrumentationInfo.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONPackageInfo.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONPathPermission.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONPermissionInfo.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONProviderInfo.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONServiceInfo.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONSignature.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/model/json/JSONUriPermissionPatterns.java" target-dir="src/com/dff/cordova/plugin/model/json" />
+		<source-file src="src/android/com/dff/cordova/plugin/packagemanager/action/PackageManagerActionPackageInfo.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
+		<source-file src="src/android/com/dff/cordova/plugin/packagemanager/PackageManagerPlugin.java" target-dir="src/com/dff/cordova/plugin/packagemanager" />
+     </platform>
+</plugin>
