@@ -1,4 +1,4 @@
-package com.dff.cordova.plugin.common.action;
+package com.dff.cordova.plugin.packagemanager.common.action;
 
 import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;

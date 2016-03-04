@@ -1,4 +1,4 @@
-package com.dff.cordova.plugin.model.json;
+package com.dff.cordova.plugin.packagemanager.model.json;
 
 import org.json.JSONArray;
 import org.json.JSONException;

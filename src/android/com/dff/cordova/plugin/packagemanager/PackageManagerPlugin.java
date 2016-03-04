@@ -9,8 +9,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
-import com.dff.cordova.plugin.common.action.CordovaAction;
 import com.dff.cordova.plugin.packagemanager.action.PackageManagerActionPackageInfo;
+import com.dff.cordova.plugin.packagemanager.common.action.CordovaAction;
 
 /**
  * This plugin implements an interface for mocking gps position.

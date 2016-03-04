@@ -9,8 +9,8 @@ import org.json.JSONObject;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import com.dff.cordova.plugin.common.action.CordovaAction;
-import com.dff.cordova.plugin.model.json.JSONPackageInfo;
+import com.dff.cordova.plugin.packagemanager.common.action.CordovaAction;
+import com.dff.cordova.plugin.packagemanager.model.json.JSONPackageInfo;
 
 public class PackageManagerActionPackageInfo extends CordovaAction {
 	
