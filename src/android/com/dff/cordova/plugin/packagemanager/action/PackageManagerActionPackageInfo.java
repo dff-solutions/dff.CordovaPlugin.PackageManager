@@ -1,7 +1,7 @@
 package com.dff.cordova.plugin.packagemanager.action;
 
 import org.apache.cordova.CallbackContext;
-import org.apache.cordova.LOG;
+import org.apache.cordova.CordovaInterface;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,20 +9,16 @@ import org.json.JSONObject;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import com.dff.cordova.plugin.packagemanager.common.action.CordovaAction;
+import com.dff.cordova.plugin.common.action.CordovaAction;
+import com.dff.cordova.plugin.common.log.CordovaPluginLog;
 import com.dff.cordova.plugin.packagemanager.model.json.JSONPackageInfo;
 
 public class PackageManagerActionPackageInfo extends CordovaAction {
+	public static final String LOG_TAG = "com.dff.cordova.plugin.packagemanager.action.PackageManagerActionPackageInfo";	
 	
-	private PackageManager packageManager;
-	private String packagename;
-
 	public PackageManagerActionPackageInfo(String action, JSONArray args,
-			CallbackContext callbackContext, PackageManager packageManager,
-			String packagename) {
-		super(action, args, callbackContext);
-		this.packageManager = packageManager;
-		this.packagename = packagename;
+			CallbackContext callbackContext, CordovaInterface cordova) {
+		super(action, args, callbackContext, cordova);
 	}
 	
 	@Override
@@ -41,18 +37,21 @@ public class PackageManagerActionPackageInfo extends CordovaAction {
 				flags = jsonArgs.optInt("flags", 0);
 			}
 			
-			packageinfo = this.packageManager.getPackageInfo(this.packagename, flags);
+			String packagename = this.cordova.getActivity().getPackageName();
+			PackageManager packageManager = this.cordova.getActivity().getPackageManager(); 
+			
+			packageinfo = packageManager.getPackageInfo(packagename, flags);
 			jsonPackageInfo = JSONPackageInfo.toJSON(packageinfo);
 			
 			this.callbackContext.success(jsonPackageInfo);
 			
 		}
 		catch(JSONException e) {
-			LOG.e(this.getClass().getName(), e.getMessage(), e);
+			CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
 			callbackContext.error(e.getMessage());
 		}
 		catch(Exception ex) {
-			LOG.e(this.getClass().getName(), ex.getMessage(), ex);
+			CordovaPluginLog.e(LOG_TAG, ex.getMessage(), ex);
 			callbackContext.error(ex.getMessage());
 		}
 		

@@ -1,33 +1,27 @@
 package com.dff.cordova.plugin.packagemanager;
 
 import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.util.Log;
-
+import com.dff.cordova.plugin.common.CommonPlugin;
+import com.dff.cordova.plugin.common.action.CordovaAction;
+import com.dff.cordova.plugin.common.log.CordovaPluginLog;
 import com.dff.cordova.plugin.packagemanager.action.PackageManagerActionPackageInfo;
-import com.dff.cordova.plugin.packagemanager.common.action.CordovaAction;
 
 /**
  * This plugin implements an interface for mocking gps position.
  *
  * @author dff solutions
  */
-public class PackageManagerPlugin extends CordovaPlugin {
-	private Context appContext;
-	private PackageManager packageManager;
+public class PackageManagerPlugin extends CommonPlugin {
+	private static final String LOG_TAG = "com.dff.cordova.plugin.packagemanager.PackageManagerPlugin";
 
    /**
 	* Called after plugin construction and fields have been initialized.
 	*/
     public void pluginInitialize() {
     	super.pluginInitialize();
-    	appContext = this.cordova.getActivity().getApplicationContext();
-    	this.packageManager = appContext.getPackageManager();
     }
     
     /**
@@ -52,24 +46,22 @@ public class PackageManagerPlugin extends CordovaPlugin {
         throws JSONException {
     	CordovaAction cordovaAction = null;
 		
-    	Log.i(this.getClass().getName(), "call for action: " + action + "; args: " + args);
+    	CordovaPluginLog.i(LOG_TAG, "call for action: " + action + "; args: " + args);
     	
-    	if (action.equals("packageinfo")) {
-    		
+    	if (action.equals("packageinfo")) {    		
     		cordovaAction = new PackageManagerActionPackageInfo(
     				action,
     				args,
     				callbackContext,
-    				this.packageManager,
-    				appContext.getApplicationInfo().packageName
+    				this.cordova
 				);
     	}
     	
     	if (cordovaAction != null) {    		    		
-    		cordova.getActivity().runOnUiThread(cordovaAction);    		
+    		this.cordova.getThreadPool().execute(cordovaAction);    		
             return true;
     	}    	
 
-        return false;
+        return super.execute(action, args, callbackContext);
     }
 }
