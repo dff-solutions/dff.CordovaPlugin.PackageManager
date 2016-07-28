@@ -16,6 +16,10 @@ import com.dff.cordova.plugin.packagemanager.action.PackageManagerActionPackageI
  */
 public class PackageManagerPlugin extends CommonPlugin {
 	private static final String LOG_TAG = "com.dff.cordova.plugin.packagemanager.PackageManagerPlugin";
+	
+	public PackageManagerPlugin() {
+		super(LOG_TAG);
+	}
 
    /**
 	* Called after plugin construction and fields have been initialized.
