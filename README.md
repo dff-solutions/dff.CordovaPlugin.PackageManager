@@ -31,4 +31,4 @@ Feature is available in JavaScript via global `PackageManager`.
 `args` is expected to be an object containing optional property `flags`. Flags modify the data to be returned.
 Multiple flags can be added.
 
-    PackageManager.getPackageInfo(success, error, { flags: PackageManager.GET_PERMISSIONS})
+    PackageManager.getPackageInfo(function (info) { console.log(info); }, function (reason) { console.error(reason); }, { flags: PackageManager.GET_PERMISSIONS})
