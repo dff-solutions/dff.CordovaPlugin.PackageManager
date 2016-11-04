@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" 
-    id="com.dff.cordova.plugins.packagemanager"
+    id="dff-cordova-plugin-packagemanager"
     version="0.0.2">
 
     <name>PackageInfo</name>
