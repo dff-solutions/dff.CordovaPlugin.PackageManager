@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import android.content.pm.ActivityInfo;
 import android.content.pm.ConfigurationInfo;
+import android.content.pm.FeatureInfo;
 import android.content.pm.InstrumentationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PermissionInfo;
@@ -90,8 +91,8 @@ public class JSONPackageInfo {
 		
 		JSONArray jsonReqFeatures = new JSONArray();
 		if (packageinfo.reqFeatures != null) {
-			for (int i = 0; i < packageinfo.reqFeatures.length; i++) {
-				jsonReqFeatures.put(JSONFeatureInfo.toJSON(packageinfo.reqFeatures[i]));
+			for (FeatureInfo fi : packageinfo.reqFeatures) {
+				jsonReqFeatures.put(JSONFeatureInfo.toJSON(fi));
 			}
 		}
 		jsonPackageInfo.put("reqFeatures", jsonReqFeatures);
