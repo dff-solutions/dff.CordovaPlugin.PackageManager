@@ -7,28 +7,44 @@ Cordova plugin to access functionality of Android [PackageManager](http://develo
   
 ## Install
 
-    cordova plugin add git@github.com:dff-solutions/dff.CordovaPlugin.PackageManager.git
+```sh
+$ cordova plugin add git@github.com:dff-solutions/dff.CordovaPlugin.PackageManager.git
+```
     
 ## Usage
 Feature is available in JavaScript via global `PackageManager`.
 
 ### Constants
 
-    GET_ACTIVITIES = 1;
-    GET_GIDS = 256;
-    GET_CONFIGURATIONS = 16384;
-    GET_INSTRUMENTATION = 16;
-    GET_PERMISSIONS = 4096;
-    GET_PROVIDERS = 8;
-    GET_RECEIVERS = 2;
-    GET_SERVICES = 4;
-    GET_SIGNATURES = 64;
+```js
+GET_ACTIVITIES = 1;
+GET_GIDS = 256;
+GET_CONFIGURATIONS = 16384;
+GET_INSTRUMENTATION = 16;
+GET_PERMISSIONS = 4096;
+GET_PROVIDERS = 8;
+GET_RECEIVERS = 2;
+GET_SERVICES = 4;
+GET_SIGNATURES = 64;
+```
 
 ### getPackageInfo
-
-    PackageManager.getPackageInfo(success, error, args)
+```js
+PackageManager
+    .getPackageInfo(success, error, args)
+```
 
 `args` is expected to be an object containing optional property `flags`. Flags modify the data to be returned.
 Multiple flags can be added.
 
-    PackageManager.getPackageInfo(function (info) { console.log(info); }, function (reason) { console.error(reason); }, { flags: PackageManager.GET_PERMISSIONS})
+```js
+PackageManager
+    .getPackageInfo(function (info) {
+        console.log(info);
+    }, function (reason) {
+        console.error(reason);
+    }, {
+        flags: PackageManager.GET_PERMISSIONS
+    }
+);
+```
