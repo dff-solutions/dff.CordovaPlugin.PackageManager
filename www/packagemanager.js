@@ -1,33 +1,59 @@
-/**
- * JavaScript interface to abstract
- * the usage of the cordova Sygic Navigation plugin.
- *
- * @module com/dff/cordova/plugins/sygic
- */
 
 'use strict';
 
 var cordova = require('cordova');
 var feature = "PackageManager";
-var self = {};
+function PackageManager(feature) {
+    this.feature = feature;
+}
 
-self.GET_ACTIVITIES = 1;
-self.GET_GIDS = 256;
-self.GET_CONFIGURATIONS = 16384;
-self.GET_INSTRUMENTATION = 16;
-self.GET_PERMISSIONS = 4096;
-self.GET_PROVIDERS = 8;
-self.GET_RECEIVERS = 2;
-self.GET_SERVICES = 4;
-self.GET_SIGNATURES = 64;
+var actions = [
+    "getPackageInfo",
+    "launchPackage"
+]
 
-/**
- * Get Package info of app.
- *
- */
-self.getPackageInfo = function (success, error, args) {
-    cordova.exec(success, error, feature, "packageinfo", [args]);
-};
+var eventActions = [];
+
+PackageManager.GET_ACTIVITIES = 1;
+PackageManager.GET_GIDS = 256;
+PackageManager.GET_CONFIGURATIONS = 16384;
+PackageManager.GET_INSTRUMENTATION = 16;
+PackageManager.GET_PERMISSIONS = 4096;
+PackageManager.GET_PROVIDERS = 8;
+PackageManager.GET_RECEIVERS = 2;
+PackageManager.GET_SERVICES = 4;
+PackageManager.GET_SIGNATURES = 64;
 
 
-module.exports = self;
+function createActionFunction (action) {
+    return function (args) {
+        args = args || {};
+
+        return new Promise(function (resolve, reject) {
+            cordova.exec(function () {
+                resolve.apply(this, arguments);
+            }, function () {
+                reject.apply(this, arguments);
+            }, feature, action, [args]);
+        });
+    }
+}
+
+function createEventActionFunction (action) {
+    return function (success, error, args) {
+        args = args || {};
+
+        cordova.exec(success, error, feature, action, [args]);
+    }
+}
+
+actions.forEach(function (action) {
+    PackageManager.prototype[action] = createActionFunction(action);
+});
+
+eventActions.forEach(function (action) {
+    PackageManager.prototype[action] = createEventActionFunction(action);
+});
+
+
+module.exports = new PackageManager(feature);
