@@ -14,6 +14,7 @@ import org.json.JSONObject;
 public class GetPackageInfo extends CordovaAction {
     private static final String LOG_TAG = "com.dff.cordova.plugin.packagemanager.action.GetPackageInfo";
     public static final String ACTION = "getPackageInfo";
+    public static final String JSON_ARG_FLAGS = "flags";
 
     public GetPackageInfo(String action, JSONArray args,
                           CallbackContext callbackContext, CordovaInterface cordova) {
@@ -30,10 +31,12 @@ public class GetPackageInfo extends CordovaAction {
         JSONObject jsonPackageInfo;
 
         try {
-            jsonArgs = args.getJSONObject(0);
+            if (!args.isNull(0)) {
+                jsonArgs = args.getJSONObject(0);
 
-            if (jsonArgs != null) {
-                flags = jsonArgs.optInt("flags", 0);
+                if (jsonArgs != null) {
+                    flags = jsonArgs.optInt(JSON_ARG_FLAGS, 0);
+                }
             }
 
             String packagename = this.cordova.getActivity().getPackageName();
