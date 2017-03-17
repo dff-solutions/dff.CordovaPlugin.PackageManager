@@ -1,4 +1,3 @@
-
 'use strict';
 
 var cordova = require('cordova');
@@ -10,7 +9,7 @@ function PackageManager(feature) {
 var actions = [
     "getPackageInfo",
     "launchPackage"
-]
+];
 
 var eventActions = [];
 
@@ -25,21 +24,15 @@ PackageManager.GET_SERVICES = 4;
 PackageManager.GET_SIGNATURES = 64;
 
 
-function createActionFunction (action) {
-    return function (args) {
+function createActionFunction(action) {
+    return function (success, error, args) {
         args = args || {};
 
-        return new Promise(function (resolve, reject) {
-            cordova.exec(function () {
-                resolve.apply(this, arguments);
-            }, function () {
-                reject.apply(this, arguments);
-            }, feature, action, [args]);
-        });
+        cordova.exec(success, error, feature, action, [args]);
     }
 }
 
-function createEventActionFunction (action) {
+function createEventActionFunction(action) {
     return function (success, error, args) {
         args = args || {};
 
