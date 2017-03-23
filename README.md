@@ -68,3 +68,6 @@ PackageManager
         console.error(reason);
     });
 ```
+
+## Documentation
+- <a href="https://dff-solutions.github.io/dff.CordovaPlugin.PackageManager/" target="_blank" >JAVA DOC</a>
