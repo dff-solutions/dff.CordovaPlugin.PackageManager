@@ -1,0 +1,16 @@
+{
+  "name": "dff-cordova-plugin-packagemanager",
+  "version": "1.0.3",
+  "description": "PackageInfo Plugin",
+  "cordova": {
+    "id": "dff-cordova-plugin-packagemanager",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "cordova-android"
+  ],
+  "license": "Apache-2.0"
+}
