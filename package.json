@@ -1,16 +1,27 @@
 {
   "name": "dff-cordova-plugin-packagemanager",
   "version": "1.0.3",
-  "description": "PackageInfo Plugin",
-  "cordova": {
-    "id": "dff-cordova-plugin-packagemanager",
-    "platforms": [
-      "android"
-    ]
+  "description": "cordoav plugin packagemanager",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dff-solutions/dff.CordovaPlugin.PackageManager.git"
   },
   "keywords": [
     "cordova",
-    "cordova-android"
+    "plugin",
+    "packagemanager",
+    "android"
   ],
-  "license": "Apache-2.0"
+  "author": "Frank Koenigstein",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dff-solutions/dff.CordovaPlugin.PackageManager/issues"
+  },
+  "homepage": "https://github.com/dff-solutions/dff.CordovaPlugin.PackageManager#readme"
 }
