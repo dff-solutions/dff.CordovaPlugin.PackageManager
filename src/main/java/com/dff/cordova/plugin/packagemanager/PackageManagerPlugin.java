@@ -3,6 +3,7 @@ package com.dff.cordova.plugin.packagemanager;
 import android.util.Log;
 import com.dff.cordova.plugin.common.CommonPlugin;
 import com.dff.cordova.plugin.common.action.CordovaAction;
+import com.dff.cordova.plugin.packagemanager.action.GetInstalledApplications;
 import com.dff.cordova.plugin.packagemanager.action.LaunchPackage;
 import com.dff.cordova.plugin.packagemanager.action.GetPackageInfo;
 import org.apache.cordova.CallbackContext;
@@ -15,7 +16,7 @@ import org.json.JSONException;
  * @author dff solutions
  */
 public class PackageManagerPlugin extends CommonPlugin {
-    private static final String LOG_TAG = "com.dff.cordova.plugin.packagemanager.PackageManagerPlugin";
+    private static final String LOG_TAG = "PackageManagerPlugin";
 
     public PackageManagerPlugin() {
         super(LOG_TAG);
@@ -66,6 +67,11 @@ public class PackageManagerPlugin extends CommonPlugin {
                     args,
                     callbackContext,
                     this.cordova
+            );
+        }
+        else if (action.equals(GetInstalledApplications.ACTION)) {
+            cordovaAction = new GetInstalledApplications(
+                    action, args, callbackContext, this.cordova
             );
         }
 
