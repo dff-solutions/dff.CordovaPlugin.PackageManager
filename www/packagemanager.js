@@ -9,7 +9,8 @@ function PackageManager(feature) {
 var actions = [
     "getPackageInfo",
     "launchPackage",
-    "getInstalledApplications"
+    "getInstalledApplications",
+    "startActivity"
 ];
 
 var eventActions = [];
