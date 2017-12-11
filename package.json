@@ -1,9 +1,9 @@
 {
   "name": "@dff/cordova-plugin-packagemanager",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "cordova plugin packagemanager",
   "cordova": {
-    "id": "dff-cordova-plugin-packagemanager",
+    "id": "@dff/cordova-plugin-packagemanager",
     "platforms": [
       "android"
     ]
