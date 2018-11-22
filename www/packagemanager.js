@@ -10,20 +10,21 @@ var actions = [
     "getPackageInfo",
     "launchPackage",
     "getInstalledApplications",
+    "getInstalledPackages",
     "startActivity"
 ];
 
 var eventActions = [];
 
-PackageManager.GET_ACTIVITIES = 1;
-PackageManager.GET_GIDS = 256;
-PackageManager.GET_CONFIGURATIONS = 16384;
-PackageManager.GET_INSTRUMENTATION = 16;
-PackageManager.GET_PERMISSIONS = 4096;
-PackageManager.GET_PROVIDERS = 8;
-PackageManager.GET_RECEIVERS = 2;
-PackageManager.GET_SERVICES = 4;
-PackageManager.GET_SIGNATURES = 64;
+PackageManager.prototype.GET_ACTIVITIES = 1;
+PackageManager.prototype.GET_GIDS = 256;
+PackageManager.prototype.GET_CONFIGURATIONS = 16384;
+PackageManager.prototype.GET_INSTRUMENTATION = 16;
+PackageManager.prototype.GET_PERMISSIONS = 4096;
+PackageManager.prototype.GET_PROVIDERS = 8;
+PackageManager.prototype.GET_RECEIVERS = 2;
+PackageManager.prototype.GET_SERVICES = 4;
+PackageManager.prototype.GET_SIGNATURES = 64;
 
 
 function createActionFunction(action) {
