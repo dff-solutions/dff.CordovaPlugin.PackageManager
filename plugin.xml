@@ -3,8 +3,7 @@
     xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="dff-cordova-plugin-packagemanager"
-    spec="1.2.2"
-    version="1.2.2">
+    version="1.3.0">
 
     <name>PackageInfo</name>
     <description>PackageInfo Plugin</description>
@@ -29,6 +28,7 @@
         </config-file>
 
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/GetInstalledApplications.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
+        <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/GetInstalledPackages.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/GetPackageInfo.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/LaunchPackage.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/StartActivity.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
