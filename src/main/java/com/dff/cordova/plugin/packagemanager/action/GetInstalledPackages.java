@@ -2,7 +2,11 @@ package com.dff.cordova.plugin.packagemanager.action;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import com.dff.cordova.plugin.common.action.CordovaAction;
+import com.dff.cordova.plugin.common.log.CordovaPluginLog;
 import com.dff.cordova.plugin.packagemanager.model.json.JSONPackageInfo;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
