@@ -12,7 +12,11 @@ public class JSONPermissionInfo {
 		jsonPermission.put("descriptionRes", permissionInfo.descriptionRes);
 		jsonPermission.put("flags", permissionInfo.flags);
 		jsonPermission.put("group", permissionInfo.group);
-		jsonPermission.put("nonLocalizedDescription", permissionInfo.nonLocalizedDescription.toString());
+
+		if (permissionInfo.nonLocalizedDescription != null) {
+			jsonPermission.put("nonLocalizedDescription", permissionInfo.nonLocalizedDescription.toString());
+		}
+
 		jsonPermission.put("protectionLevel", permissionInfo.protectionLevel);
 		
 		return jsonPermission;

@@ -11,6 +11,8 @@ var actions = [
     "launchPackage",
     "getInstalledApplications",
     "getInstalledPackages",
+    "queryBroadcastReceivers",
+    "queryIntentActivities",
     "startActivity"
 ];
 
