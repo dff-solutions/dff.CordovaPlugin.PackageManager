@@ -3,11 +3,7 @@ package com.dff.cordova.plugin.packagemanager;
 import android.util.Log;
 import com.dff.cordova.plugin.common.CommonPlugin;
 import com.dff.cordova.plugin.common.action.CordovaAction;
-import com.dff.cordova.plugin.packagemanager.action.GetInstalledApplications;
-import com.dff.cordova.plugin.packagemanager.action.GetInstalledPackages;
-import com.dff.cordova.plugin.packagemanager.action.LaunchPackage;
-import com.dff.cordova.plugin.packagemanager.action.GetPackageInfo;
-import com.dff.cordova.plugin.packagemanager.action.StartActivity;
+import com.dff.cordova.plugin.packagemanager.action.*;
 import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -78,6 +74,16 @@ public class PackageManagerPlugin extends CommonPlugin {
         }
         else if (action.equals(GetInstalledPackages.ACTION)) {
             cordovaAction = new GetInstalledPackages(
+                    action, args, callbackContext, this.cordova
+            );
+        }
+        else if (action.equals(QueryBroadcastReceivers.ACTION)) {
+            cordovaAction = new QueryBroadcastReceivers(
+                    action, args, callbackContext, this.cordova
+            );
+        }
+        else if (action.equals(QueryIntentActivities.ACTION)) {
+            cordovaAction = new QueryIntentActivities(
                     action, args, callbackContext, this.cordova
             );
         }
