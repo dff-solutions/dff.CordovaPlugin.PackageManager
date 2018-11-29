@@ -15,6 +15,7 @@ public class GetPackageInfo extends CordovaAction {
     private static final String LOG_TAG = "GetPackageInfo";
     public static final String ACTION = "getPackageInfo";
     public static final String JSON_ARG_FLAGS = "flags";
+    public static final String JSON_ARG_PACKAGE = "package";
 
     public GetPackageInfo(String action, JSONArray args,
                           CallbackContext callbackContext, CordovaInterface cordova) {
@@ -26,6 +27,7 @@ public class GetPackageInfo extends CordovaAction {
         super.run();
 
         int flags = 0;
+        String pkg = this.cordova.getActivity().getPackageName();
         JSONObject jsonArgs;
         PackageInfo packageinfo;
         JSONObject jsonPackageInfo;
@@ -36,13 +38,13 @@ public class GetPackageInfo extends CordovaAction {
 
                 if (jsonArgs != null) {
                     flags = jsonArgs.optInt(JSON_ARG_FLAGS, 0);
+                    pkg = jsonArgs.optString(JSON_ARG_PACKAGE, pkg);
                 }
             }
 
-            String packagename = this.cordova.getActivity().getPackageName();
             PackageManager packageManager = this.cordova.getActivity().getPackageManager();
 
-            packageinfo = packageManager.getPackageInfo(packagename, flags);
+            packageinfo = packageManager.getPackageInfo(pkg, flags);
             jsonPackageInfo = JSONPackageInfo.toJSON(packageinfo);
 
             this.callbackContext.success(jsonPackageInfo);
