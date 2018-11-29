@@ -284,6 +284,7 @@ interface AuthorityEntry {
  * @param {function} error Callback for error
  * @param args { Object } Named parameters.
  * @param args.flags { number } Flags which modify the data to be returned.
+ * @param args.package { string } Optional full name of the desired package. If not set current package name is used.
  * @return { PackageInfo } Package info of current package.
  */
 PackageManager
@@ -292,7 +293,8 @@ PackageManager
          console.error,
          {
             flags: PackageManager.GET_PERMISSIONS
-    });
+        }
+    );
 ```
 
 
