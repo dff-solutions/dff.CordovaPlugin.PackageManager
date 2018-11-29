@@ -124,7 +124,6 @@ interface ConfigurationInfo {
     reqKeyboardType: number;
     reqNavigation: number;
     reqTouchScreen: number;
-		
 }
 ```
 
@@ -177,7 +176,6 @@ interface PathPermission {
     path: string;
     readPermission: string;
     writePermission: string;
-		
 }
 ```
 
@@ -186,7 +184,8 @@ interface PathPermission {
 ```ts
 interface PatternMatcher {
     type: number;
-    path: string}
+    path: string;
+}
 ```
 
 ### FeatureInfo
@@ -322,10 +321,7 @@ PackageManager
 ### getInstalledPackages
 ```ts
 /**
- * Return a List of all application packages that are installed for the current user.
- * If flag GET_UNINSTALLED_PACKAGES has been set, a list of all applications including
- * those deleted with DONT_DELETE_DATA (partially installed apps with data directory)
- * will be returned.
+ * Return a List of all packages that are installed for the current user.
  *
  * @param {function} success Callback for success
  * @param {function} error Callback for error
