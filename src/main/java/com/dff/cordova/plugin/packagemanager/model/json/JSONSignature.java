@@ -8,7 +8,7 @@ import android.content.pm.Signature;
 public class JSONSignature {
 	public static JSONObject toJSON(Signature signature) throws JSONException {
 		JSONObject jsonSignature = new JSONObject();
-			jsonSignature.put("charsString", signature.toCharsString());
+		jsonSignature.put("charsString", signature.toCharsString());
 		return jsonSignature;
 	}
 }
