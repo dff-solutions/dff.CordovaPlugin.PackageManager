@@ -35,7 +35,7 @@ public class JSONProviderInfo {
 				JSONArray jsonUriPermissionPatterns = new JSONArray();
 
 				for (int i = 0; i < providerInfo.uriPermissionPatterns.length; i++) {
-					jsonUriPermissionPatterns.put(JSONUriPermissionPatterns.toJSON(providerInfo.uriPermissionPatterns[i]));
+					jsonUriPermissionPatterns.put(JSONPatternMatcher.toJSON(providerInfo.uriPermissionPatterns[i]));
 				}
 
 				jsonProviderInfo.put("uriPermissionPatterns", jsonUriPermissionPatterns);

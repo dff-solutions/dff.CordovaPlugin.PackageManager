@@ -19,22 +19,23 @@ public class JSONServiceInfo {
 			jsonServiceInfo.put("enabled", serviceInfo.enabled);
 			jsonServiceInfo.put("exported", serviceInfo.exported);
 			jsonServiceInfo.put("permission", serviceInfo.permission);
+			jsonServiceInfo.put("flags", serviceInfo.flags);
 
-			JSONArray jsonFlags = new JSONArray();
+			JSONArray jsonFlagNames = new JSONArray();
 
 			if ((ServiceInfo.FLAG_ISOLATED_PROCESS & serviceInfo.flags) == ServiceInfo.FLAG_ISOLATED_PROCESS) {
-				jsonFlags.put("FLAG_ISOLATED_PROCESS");
+				jsonFlagNames.put("FLAG_ISOLATED_PROCESS");
 			}
 
 			if ((ServiceInfo.FLAG_SINGLE_USER & serviceInfo.flags) == ServiceInfo.FLAG_SINGLE_USER) {
-				jsonFlags.put("FLAG_SINGLE_USER");
+				jsonFlagNames.put("FLAG_SINGLE_USER");
 			}
 
 			if ((ServiceInfo.FLAG_STOP_WITH_TASK & serviceInfo.flags) == ServiceInfo.FLAG_STOP_WITH_TASK) {
-				jsonFlags.put("FLAG_STOP_WITH_TASK");
+				jsonFlagNames.put("FLAG_STOP_WITH_TASK");
 			}
 
-			jsonServiceInfo.put("flags", jsonFlags);
+			jsonServiceInfo.put("flagNames", jsonFlagNames);
 		}
 		
 		return jsonServiceInfo;

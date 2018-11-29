@@ -88,14 +88,16 @@ public class JSONActivityInfo {
 		}
 
 		jsonActivityInfo.put("configChanges", jsonConfigChanges);
-		
-		JSONArray jsonFlags = new JSONArray();
+
+		jsonActivityInfo.put("flags", activityinfo.flags);
+
+		JSONArray jsonFlagNames = new JSONArray();
 		if ((ActivityInfo.FLAG_ALLOW_TASK_REPARENTING & activityinfo.flags) == ActivityInfo.FLAG_ALLOW_TASK_REPARENTING) {
-		    jsonFlags.put("FLAG_ALLOW_TASK_REPARENTING");
+		    jsonFlagNames.put("FLAG_ALLOW_TASK_REPARENTING");
 		}
 
 		if ((ActivityInfo.FLAG_ALWAYS_RETAIN_TASK_STATE & activityinfo.flags) == ActivityInfo.FLAG_ALWAYS_RETAIN_TASK_STATE) {
-		    jsonFlags.put("FLAG_ALWAYS_RETAIN_TASK_STATE");
+		    jsonFlagNames.put("FLAG_ALWAYS_RETAIN_TASK_STATE");
 		}
 
 //		if ((ActivityInfo.FLAG_AUTO_REMOVE_FROM_RECENTS & activityinfo.flags) == ActivityInfo.FLAG_AUTO_REMOVE_FROM_RECENTS) {
@@ -103,7 +105,7 @@ public class JSONActivityInfo {
 //		}
 
 		if ((ActivityInfo.FLAG_CLEAR_TASK_ON_LAUNCH & activityinfo.flags) == ActivityInfo.FLAG_CLEAR_TASK_ON_LAUNCH) {
-		    jsonFlags.put("FLAG_CLEAR_TASK_ON_LAUNCH");
+		    jsonFlagNames.put("FLAG_CLEAR_TASK_ON_LAUNCH");
 		}
 
 //		if ((ActivityInfo.FLAG_ENABLE_VR_MODE & activityinfo.flags) == ActivityInfo.FLAG_ENABLE_VR_MODE) {
@@ -111,31 +113,31 @@ public class JSONActivityInfo {
 //		}
 
 		if ((ActivityInfo.FLAG_EXCLUDE_FROM_RECENTS & activityinfo.flags) == ActivityInfo.FLAG_EXCLUDE_FROM_RECENTS) {
-		    jsonFlags.put("FLAG_EXCLUDE_FROM_RECENTS");
+		    jsonFlagNames.put("FLAG_EXCLUDE_FROM_RECENTS");
 		}
 
 		if ((ActivityInfo.FLAG_FINISH_ON_CLOSE_SYSTEM_DIALOGS & activityinfo.flags) == ActivityInfo.FLAG_FINISH_ON_CLOSE_SYSTEM_DIALOGS) {
-		    jsonFlags.put("FLAG_FINISH_ON_CLOSE_SYSTEM_DIALOGS");
+		    jsonFlagNames.put("FLAG_FINISH_ON_CLOSE_SYSTEM_DIALOGS");
 		}
 
 		if ((ActivityInfo.FLAG_FINISH_ON_TASK_LAUNCH & activityinfo.flags) == ActivityInfo.FLAG_FINISH_ON_TASK_LAUNCH) {
-		    jsonFlags.put("FLAG_FINISH_ON_TASK_LAUNCH");
+		    jsonFlagNames.put("FLAG_FINISH_ON_TASK_LAUNCH");
 		}
 
 		if ((ActivityInfo.FLAG_HARDWARE_ACCELERATED & activityinfo.flags) == ActivityInfo.FLAG_HARDWARE_ACCELERATED) {
-		    jsonFlags.put("FLAG_HARDWARE_ACCELERATED");
+		    jsonFlagNames.put("FLAG_HARDWARE_ACCELERATED");
 		}
 
 		if ((ActivityInfo.FLAG_IMMERSIVE & activityinfo.flags) == ActivityInfo.FLAG_IMMERSIVE) {
-		    jsonFlags.put("FLAG_IMMERSIVE");
+		    jsonFlagNames.put("FLAG_IMMERSIVE");
 		}
 
 		if ((ActivityInfo.FLAG_MULTIPROCESS & activityinfo.flags) == ActivityInfo.FLAG_MULTIPROCESS) {
-		    jsonFlags.put("FLAG_MULTIPROCESS");
+		    jsonFlagNames.put("FLAG_MULTIPROCESS");
 		}
 
 		if ((ActivityInfo.FLAG_NO_HISTORY & activityinfo.flags) == ActivityInfo.FLAG_NO_HISTORY) {
-		    jsonFlags.put("FLAG_NO_HISTORY");
+		    jsonFlagNames.put("FLAG_NO_HISTORY");
 		}
 
 //		if ((ActivityInfo.FLAG_RELINQUISH_TASK_IDENTITY & activityinfo.flags) == ActivityInfo.FLAG_RELINQUISH_TASK_IDENTITY) {
@@ -147,31 +149,32 @@ public class JSONActivityInfo {
 //		}
 
 		if ((ActivityInfo.FLAG_SINGLE_USER & activityinfo.flags) == ActivityInfo.FLAG_SINGLE_USER) {
-		    jsonFlags.put("FLAG_SINGLE_USER");
+		    jsonFlagNames.put("FLAG_SINGLE_USER");
 		}
 
 		if ((ActivityInfo.FLAG_STATE_NOT_NEEDED & activityinfo.flags) == ActivityInfo.FLAG_STATE_NOT_NEEDED) {
-		    jsonFlags.put("FLAG_STATE_NOT_NEEDED");
+		    jsonFlagNames.put("FLAG_STATE_NOT_NEEDED");
 		}
 
-		jsonActivityInfo.put("flags", jsonFlags);
+		jsonActivityInfo.put("flagNames", jsonFlagNames);
 		
-		String jsonLaunchMode = null;
+		String jsonLaunchModeName = null;
 		if (ActivityInfo.LAUNCH_MULTIPLE == activityinfo.launchMode) {
-		    jsonLaunchMode = "LAUNCH_MULTIPLE";
+		    jsonLaunchModeName = "LAUNCH_MULTIPLE";
 		}
 		else if (ActivityInfo.LAUNCH_SINGLE_INSTANCE == activityinfo.launchMode) {
-		    jsonLaunchMode = "LAUNCH_SINGLE_INSTANCE";
+		    jsonLaunchModeName = "LAUNCH_SINGLE_INSTANCE";
 		}
 		else if (ActivityInfo.LAUNCH_SINGLE_TASK == activityinfo.launchMode) {
-		    jsonLaunchMode = "LAUNCH_SINGLE_TASK";
+		    jsonLaunchModeName = "LAUNCH_SINGLE_TASK";
 		}
 		else if (ActivityInfo.LAUNCH_SINGLE_TOP == activityinfo.launchMode) {
-		    jsonLaunchMode = "LAUNCH_SINGLE_TOP";
+		    jsonLaunchModeName = "LAUNCH_SINGLE_TOP";
 		}
 
-		jsonActivityInfo.put("launchMode", jsonLaunchMode);
-		
+		jsonActivityInfo.put("launchMode", activityinfo.launchMode);
+		jsonActivityInfo.put("launchModeName", jsonLaunchModeName);
+
 		return jsonActivityInfo;
 	}
 }
