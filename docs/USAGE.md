@@ -310,7 +310,7 @@ PackageManager
  */
 PackageManager
     .launchPackage(
-        () => console.log("success")
+        () => console.log("success"),
         console.error,
         {
             package: "com.android.settings"
@@ -332,9 +332,9 @@ PackageManager
  */
 PackageManager
     .getInstalledPackages(
-        (pkgs) => console.info(pkgs)
-        , console.error
-        , {
+        (pkgs) => console.info(pkgs),
+        console.error,
+        {
             flags: 0
         }
     );
@@ -356,9 +356,9 @@ PackageManager
  */
 PackageManager
     .getInstalledApplications(
-        (apps) => console.info(apps)
-        , console.error
-        , {
+        (apps) => console.info(apps),
+        console.error,
+        {
             flags: 0
         }
     );
