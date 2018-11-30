@@ -5,6 +5,8 @@ Cordova plugin to access functionality of Android [PackageManager](http://develo
 ## Supported Platforms
   * Android
 
+## [CHANGELOG](./CHANGELOG.md)
+
 ## Install
 
     cordova plugin add git@github.com:dff-solutions/dff.CordovaPlugin.PackageManager.git
