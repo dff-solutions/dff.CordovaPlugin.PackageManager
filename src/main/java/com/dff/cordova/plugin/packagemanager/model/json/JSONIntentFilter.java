@@ -39,7 +39,7 @@ public class JSONIntentFilter {
 
             if (authorityEntryIterator != null) {
                 while (authorityEntryIterator.hasNext()) {
-                    jsonActions.put(JSONIntentFilterAuthorityEntry.toJSON(authorityEntryIterator.next()));
+                    jsonAuthorities.put(JSONIntentFilterAuthorityEntry.toJSON(authorityEntryIterator.next()));
                 }
             }
 
@@ -59,7 +59,7 @@ public class JSONIntentFilter {
 
             if (schemeSpecificPartsIterator != null) {
                 while (schemeSpecificPartsIterator.hasNext()) {
-                    jsonPaths.put(JSONPatternMatcher.toJSON(schemeSpecificPartsIterator.next()));
+                    jsonSchemeSpecificParts.put(JSONPatternMatcher.toJSON(schemeSpecificPartsIterator.next()));
                 }
             }
             jsonIntentFilter.put("schemeSpecificParts", jsonSchemeSpecificParts);
@@ -69,7 +69,7 @@ public class JSONIntentFilter {
 
             if (schemesIterator != null) {
                 while (schemesIterator.hasNext()) {
-                    jsonPaths.put(schemesIterator.next());
+                    jsonSchemes.put(schemesIterator.next());
                 }
             }
             jsonIntentFilter.put("schemes", jsonSchemes);
@@ -79,7 +79,7 @@ public class JSONIntentFilter {
 
             if (typesIterator != null) {
                 while (typesIterator.hasNext()) {
-                    jsonPaths.put(typesIterator.next());
+                    jsonTypes.put(typesIterator.next());
                 }
             }
             jsonIntentFilter.put("types", jsonTypes);
