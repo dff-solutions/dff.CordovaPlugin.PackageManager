@@ -1,6 +1,6 @@
 {
   "name": "dff-cordova-plugin-packagemanager",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "cordova plugin packagemanager",
   "cordova": {
     "id": "dff-cordova-plugin-packagemanager",
