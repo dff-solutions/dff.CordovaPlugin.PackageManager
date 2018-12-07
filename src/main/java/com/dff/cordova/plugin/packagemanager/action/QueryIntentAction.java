@@ -6,6 +6,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
+
+import com.dff.cordova.plugin.common.action.CordovaAction;
+
 public abstract class QueryIntentAction extends CordovaAction {
     public static final String JSON_ARG_ACTION = "action";
     public static final String JSON_ARG_URI = "uri";
