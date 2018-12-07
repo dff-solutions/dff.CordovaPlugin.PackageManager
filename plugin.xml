@@ -32,6 +32,7 @@
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/LaunchPackage.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/GetInstalledApplications.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/QueryBroadcastReceivers.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
+        <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/QueryIntentAction.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/QueryIntentActivities.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/action/GetInstalledPackages.java" target-dir="src/com/dff/cordova/plugin/packagemanager/action" />
         <source-file src="src/main/java/com/dff/cordova/plugin/packagemanager/model/json/JSONIntentFilter.java" target-dir="src/com/dff/cordova/plugin/packagemanager/model/json" />
