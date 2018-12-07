@@ -17,14 +17,9 @@ import org.json.JSONObject;
 import android.net.Uri;
 import java.util.List;
 
-public class QueryBroadcastReceivers extends CordovaAction {
+public class QueryBroadcastReceivers extends QueryIntentAction {
     private static final String LOG_TAG = "QueryBroadcastReceivers";
     public static final String ACTION = "queryBroadcastReceivers";
-    public static final String JSON_ARG_ACTION = "action";
-    public static final String JSON_ARG_URI = "uri";
-    public static final String JSON_ARG_FLAGS = "flags";
-    public static final String JSON_ARG_CATEGORIES = "categories";
-    public static final String JSON_ARG_TYPE = "type";
 
     public QueryBroadcastReceivers(String action, JSONArray args,
                                 CallbackContext callbackContext, CordovaInterface cordova) {
@@ -36,8 +31,6 @@ public class QueryBroadcastReceivers extends CordovaAction {
         super.run();
 
         int flags = 0;
-        String action;
-        Uri uri;
         JSONObject jsonArgs;
         Intent queryIntent = new Intent();
         List<ResolveInfo> resolveInfo;
@@ -47,6 +40,7 @@ public class QueryBroadcastReceivers extends CordovaAction {
             if (!args.isNull(0)) {
                 jsonArgs = args.getJSONObject(0);
 
+<<<<<<< Updated upstream
                 if (jsonArgs != null) {
                     flags = jsonArgs.optInt(JSON_ARG_FLAGS, 0);
 
@@ -73,6 +67,9 @@ public class QueryBroadcastReceivers extends CordovaAction {
                         queryIntent.setType(jsonArgs.getString(JSON_ARG_TYPE));
                     }
                 }
+=======
+                queryIntent = super.parseIntentFromArgs(jsonArgs);
+>>>>>>> Stashed changes
             }
 
             PackageManager packageManager = this.cordova.getActivity().getPackageManager();

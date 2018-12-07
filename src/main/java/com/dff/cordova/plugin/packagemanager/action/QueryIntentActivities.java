@@ -15,14 +15,10 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class QueryIntentActivities extends CordovaAction {
+public class QueryIntentActivities extends QueryIntentAction {
     private static final String LOG_TAG = "QueryIntentActivities";
     public static final String ACTION = "queryIntentActivities";
-    public static final String JSON_ARG_ACTION = "action";
-    public static final String JSON_ARG_URI = "uri";
-    public static final String JSON_ARG_FLAGS = "flags";
-    public static final String JSON_ARG_CATEGORIES = "categories";
-    public static final String JSON_ARG_TYPE = "type";
+
 
     public QueryIntentActivities(String action, JSONArray args,
                                  CallbackContext callbackContext, CordovaInterface cordova) {
@@ -33,19 +29,17 @@ public class QueryIntentActivities extends CordovaAction {
     public void run() {
         super.run();
 
-        int flags = 0;
-        String action;
-        Uri uri;
         JSONObject jsonArgs;
-        Intent queryIntent = new Intent();
         List<ResolveInfo> resolveInfo;
         JSONArray jsonResolveInfo = new JSONArray();
+        Intent queryIntent = new Intent();
 
         try {
             if (!args.isNull(0)) {
                 jsonArgs = args.getJSONObject(0);
 
                 if (jsonArgs != null) {
+<<<<<<< Updated upstream
                     flags = jsonArgs.optInt(JSON_ARG_FLAGS, 0);
 
                     if (jsonArgs.has(JSON_ARG_ACTION) && !jsonArgs.isNull(JSON_ARG_ACTION)) {
@@ -70,6 +64,9 @@ public class QueryIntentActivities extends CordovaAction {
                     if (jsonArgs.has(JSON_ARG_TYPE) && !jsonArgs.isNull(JSON_ARG_TYPE)) {
                         queryIntent.setType(jsonArgs.getString(JSON_ARG_TYPE));
                     }
+=======
+                    queryIntent = super.parseIntentFromArgs(jsonArgs);
+>>>>>>> Stashed changes
                 }
             }
 
