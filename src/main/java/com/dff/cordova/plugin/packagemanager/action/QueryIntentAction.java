@@ -19,12 +19,9 @@ public abstract class QueryIntentAction extends CordovaAction {
     }
 
     public Intent parseIntentFromArgs(JSONObject jsonArgs) throws JSONException {
-        int flags = 0;
         String action;
         Uri uri;
         Intent queryIntent = new Intent();
-
-        flags = jsonArgs.optInt(JSON_ARG_FLAGS, 0);
 
         if (jsonArgs.has(JSON_ARG_ACTION)) {
             action = jsonArgs.getString(JSON_ARG_ACTION);
