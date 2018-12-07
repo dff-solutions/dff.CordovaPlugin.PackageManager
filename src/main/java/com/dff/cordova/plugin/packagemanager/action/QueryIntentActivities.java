@@ -29,6 +29,7 @@ public class QueryIntentActivities extends QueryIntentAction {
     public void run() {
         super.run();
 
+        int flags = 0;
         JSONObject jsonArgs;
         List<ResolveInfo> resolveInfo;
         JSONArray jsonResolveInfo = new JSONArray();
@@ -39,34 +40,8 @@ public class QueryIntentActivities extends QueryIntentAction {
                 jsonArgs = args.getJSONObject(0);
 
                 if (jsonArgs != null) {
-<<<<<<< Updated upstream
                     flags = jsonArgs.optInt(JSON_ARG_FLAGS, 0);
-
-                    if (jsonArgs.has(JSON_ARG_ACTION) && !jsonArgs.isNull(JSON_ARG_ACTION)) {
-                        action = jsonArgs.getString(JSON_ARG_ACTION);
-
-                        queryIntent.setAction(action);
-                    }
-
-                    if (jsonArgs.has(JSON_ARG_URI) && !jsonArgs.isNull(JSON_ARG_URI)) {
-                        String uriStr = jsonArgs.getString(JSON_ARG_URI);
-                        uri = Uri.parse(uriStr);
-                        queryIntent.setData(uri);
-                    }
-
-                    if (jsonArgs.has(JSON_ARG_CATEGORIES) && !jsonArgs.isNull(JSON_ARG_CATEGORIES)) {
-                        JSONArray jsonCategories = jsonArgs.getJSONArray(JSON_ARG_CATEGORIES);
-                        for (int i = 0; i < jsonCategories.length(); i++) {
-                            queryIntent.addCategory(jsonCategories.getString(i));
-                        }
-                    }
-
-                    if (jsonArgs.has(JSON_ARG_TYPE) && !jsonArgs.isNull(JSON_ARG_TYPE)) {
-                        queryIntent.setType(jsonArgs.getString(JSON_ARG_TYPE));
-                    }
-=======
                     queryIntent = super.parseIntentFromArgs(jsonArgs);
->>>>>>> Stashed changes
                 }
             }
 
