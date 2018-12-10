@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.2] 2018-12-10
+- Fix: check null in intent args
+
 ## [2.0.1] 2018-11-30
 - Fix: use correct lists in JSONIntentFilter
 
